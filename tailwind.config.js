@@ -3,16 +3,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      color: {
+      colors: {
         primary: {
-          light: "red",
-          DEFAULT: "blue",
-          dark: "red"
+          light: '#63b3ed',
+          DEFAULT: '#4299e1',
+          dark: '#3182ce',
         },
         secondary: {
-          light: "yellow",
-          DEFAULT: "yellow",
-          dark: "yellow"
+          light: '#fbb6ce',
+          DEFAULT: '#f687b3',
+          dark: '#e53e3e',
         }
       }
     },

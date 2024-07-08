@@ -3,7 +3,7 @@ import { Home } from "../pages/Home";
 import { PageNotfound } from "../pages/PageNotfound";
 import { Dashboard } from "../pages/Dashboard";
 import { Login } from "../pages/Login";
-import { Signup } from "../pages/Signup";
+import  Signup  from "../pages/Signup";
 
 export const AllRoutes = () => {
   return (

@@ -5,16 +5,16 @@ export default {
     extend: {
       color: {
         primary: {
-          light: "red",
-          DEFAULT: "blue",
-          dark: "red"
+          light: "grey",
+          DEFAULT: "black",
+          dark: "black",
         },
         secondary: {
           light: "yellow",
           DEFAULT: "yellow",
-          dark: "yellow"
-        }
-      }
+          dark: "yellow",
+        },
+      },
     },
   },
   plugins: [],

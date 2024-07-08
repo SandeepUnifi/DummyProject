@@ -1,6 +1,7 @@
 // pages/PageNotfound.tsx
 import React from "react";
 
+
 const PageNotfound: React.FC = () => {
   return (
     <div>

@@ -1,6 +1,5 @@
 // pages/Home.tsx
 import React from "react";
-
 const Home: React.FC = () => {
   const backgroundImageUrl =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzzs-tRvcWkmLa51XWVWKOURbRtXCBZYbJAg&s";

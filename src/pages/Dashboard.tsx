@@ -1,7 +1,6 @@
 // pages/Dashboard.tsx
 import React from "react";
 import UserTable from "../component/UserTable";
-
 const Dashboard: React.FC = () => {
   return (
     <div className="flex flex-col items-center">

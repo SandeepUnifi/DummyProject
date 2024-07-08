@@ -15,6 +15,7 @@ export default {
           dark: '#e53e3e',
         }
       }
+
     },
   },
   plugins: [],

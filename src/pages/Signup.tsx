@@ -1,7 +1,12 @@
-import React from 'react'
+// pages/Signup.tsx
+import React from "react";
 
-export const Signup = () => {
+const Signup: React.FC = () => {
   return (
-    <div>Signup</div>
-  )
-}
+    <div>
+      <p>This is the Signup page</p>
+    </div>
+  );
+};
+
+export default Signup;

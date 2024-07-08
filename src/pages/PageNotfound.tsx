@@ -1,7 +1,12 @@
-import React from 'react'
+// pages/PageNotfound.tsx
+import React from "react";
 
-export const PageNotfound = () => {
+const PageNotfound: React.FC = () => {
   return (
-    <div>PageNotfound</div>
-  )
-}
+    <div>
+      <p>This is the PageNotfound page</p>
+    </div>
+  );
+};
+
+export default PageNotfound;

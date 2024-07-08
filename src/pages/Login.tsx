@@ -1,5 +1,12 @@
+// pages/Login.tsx
 import React from "react";
 
-export const Login = () => {
-  return <div>Login</div>;
+const Login: React.FC = () => {
+  return (
+    <div>
+      <p>This is the Login page</p>
+    </div>
+  );
 };
+
+export default Login;

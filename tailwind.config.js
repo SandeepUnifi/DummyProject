@@ -15,6 +15,9 @@ export default {
           dark: "#e53e3e",
         },
       },
+      screens: {
+        mobile: "500px",
+      },
     },
   },
   plugins: [],

@@ -21,8 +21,8 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-24 bg-white rounded shadow-md w-1/2">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 ">
+      <div className="p-24 bg-white rounded shadow-md w-1/3 ">
         <h2 className="mb-4 text-2xl font-bold text-center text-primary">
           Login
         </h2>

@@ -5,7 +5,9 @@ import UserTable from "../component/UserTable";
 const Dashboard: React.FC = () => {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-center my-8">This is the Dashboard page</h1>
+      <h1 className="text-3xl font-bold text-center my-8 underline underline-offset-4">
+        This is the Dashboard page
+      </h1>
       <UserTable />
     </div>
   );

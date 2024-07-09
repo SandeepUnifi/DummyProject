@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface User {
   id: number;
@@ -23,10 +23,25 @@ const initialUsers: User[] = [
     password: "password456",
     imageUrl: "https://picsum.photos/50",
   },
+  {
+    id: 3,
+    name: "Vishal Doe",
+    email: "vishal@example.com",
+    password: "password123",
+    imageUrl: "https://picsum.photos/50",
+  },
+  {
+    id: 4,
+    name: "Lorven Smith",
+    email: "lorven@example.com",
+    password: "password456",
+    imageUrl: "https://picsum.photos/50",
+  },
 ];
 
 const UserTable: React.FC = () => {
   const [users, setUsers] = useState<User[]>(initialUsers);
+  const [filteredUsers, setFilteredUsers] = useState<User[]>(initialUsers);
   const [editIdx, setEditIdx] = useState<number | null>(null);
   const [formData, setFormData] = useState<User>({
     id: 0,
@@ -36,6 +51,20 @@ const UserTable: React.FC = () => {
     imageUrl: "",
   });
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      const filtered = users.filter((user) =>
+        Object.values(user).some((value) =>
+          value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      );
+      setFilteredUsers(filtered);
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery, users]);
 
   const handleEdit = (user: User) => {
     setEditIdx(user.id);
@@ -67,6 +96,19 @@ const UserTable: React.FC = () => {
     setIsPopupOpen(false);
   };
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchClick = () => {
+    const filtered = users.filter((user) =>
+      Object.values(user).some((value) =>
+        value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    );
+    setFilteredUsers(filtered);
+  };
+
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
@@ -76,6 +118,21 @@ const UserTable: React.FC = () => {
           className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
         >
           Add Data
+        </button>
+      </div>
+      <div className="relative mb-4">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="pl-8 pr-4 py-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:bg-gray-600"
+          placeholder="Search..."
+        />
+        <button
+          onClick={handleSearchClick}
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ml-2"
+        >
+          Search
         </button>
       </div>
       <table className="min-w-full bg-white border border-gray-300">
@@ -98,7 +155,7 @@ const UserTable: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {filteredUsers.map((user, index) => (
             <tr
               key={user.id}
               className={editIdx === user.id ? "bg-gray-100" : "bg-white"}

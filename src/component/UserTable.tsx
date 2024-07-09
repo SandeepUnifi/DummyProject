@@ -1,4 +1,3 @@
-// src/components/UserTable.tsx
 import React, { useState } from "react";
 
 interface User {
@@ -36,6 +35,7 @@ const UserTable: React.FC = () => {
     password: "",
     imageUrl: "",
   });
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleEdit = (user: User) => {
     setEditIdx(user.id);
@@ -52,9 +52,32 @@ const UserTable: React.FC = () => {
     setEditIdx(null);
   };
 
+  const handleAddUser = () => {
+    setFormData({ id: 0, name: "", email: "", password: "", imageUrl: "" });
+    setIsPopupOpen(true);
+  };
+
+  const handleSaveNewUser = () => {
+    const newUser = {
+      ...formData,
+      id: users.length ? users[users.length - 1].id + 1 : 1,
+      imageUrl: "https://picsum.photos/50",
+    };
+    setUsers([...users, newUser]);
+    setIsPopupOpen(false);
+  };
+
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">User's Dashboard</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">User's Dashboard</h1>
+        <button
+          onClick={handleAddUser}
+          className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
+        >
+          Add Data
+        </button>
+      </div>
       <table className="min-w-full bg-white border border-gray-300">
         <thead>
           <tr className="bg-gray-800 text-white">
@@ -151,6 +174,52 @@ const UserTable: React.FC = () => {
           ))}
         </tbody>
       </table>
+
+      {isPopupOpen && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded shadow-lg">
+            <h2 className="text-xl font-bold mb-4">Add New User</h2>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded mb-4"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded mb-4"
+            />
+            <input
+              type="text"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded mb-4"
+            />
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={() => setIsPopupOpen(false)}
+                className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSaveNewUser}
+                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

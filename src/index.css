@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  transform: translateY(-2rem);
+  font-size: 0.875rem;
+  color: #4299e1;
+}
+
+label {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+  font-weight: lighter;
+}

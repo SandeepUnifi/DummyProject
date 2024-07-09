@@ -26,31 +26,40 @@ const Signup: React.FC = () => {
           Sign Up
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <input
               {...register("name")}
               type="text"
-              placeholder="Name"
-              className="w-full px-3 py-2 mb-1 border rounded-md focus:outline-none focus:ring focus:border-primary"
+              placeholder=" "
+              className="w-full px-3 py-2 mb-1 mt-4 border rounded-md focus:outline-none focus:ring focus:border-primary"
             />
+            <label className="absolute top-6 left-3 px-1 transition-all duration-200 text-gray-500">
+              Name
+            </label>
             <p className="text-red-500">{errors.name?.message}</p>
           </div>
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <input
               {...register("email")}
               type="email"
-              placeholder="Email"
-              className="w-full px-3 py-2 mb-1 border rounded-md focus:outline-none focus:ring focus:border-primary"
+              placeholder=" "
+              className="w-full px-5 py-2 mb-1 mt-4 border rounded-md focus:outline-none focus:ring focus:border-primary"
             />
+            <label className="absolute top-6 left-3 px-1 transition-all duration-200 text-gray-500">
+              Email
+            </label>
             <p className="text-red-500">{errors.email?.message}</p>
           </div>
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <input
               {...register("password")}
               type="password"
-              placeholder="Password"
-              className="w-full px-3 py-2 mb-1 border rounded-md focus:outline-none focus:ring focus:border-primary"
+              placeholder=" "
+              className="w-full px-3 mt-4 py-2 mb-1 border rounded-md focus:outline-none focus:ring focus:border-primary"
             />
+            <label className="absolute top-6 left-3 px-1 transition-all duration-200 text-gray-500">
+              Password
+            </label>
             <p className="text-red-500">{errors.password?.message}</p>
           </div>
           <button

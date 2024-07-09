@@ -27,22 +27,28 @@ export const Login: React.FC = () => {
           Login
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <input
               {...register("email")}
               type="email"
-              placeholder="Email"
-              className="w-full px-3 py-2 mb-1 border rounded-md focus:outline-none focus:ring focus:border-primary"
+              placeholder=" "
+              className="w-full py-2 px-3 py-2 my-2 mb-1 border rounded-md focus:outline-none focus:ring focus:border-primary"
             />
+            <label className="absolute top-4 left-3 px-1 transition-all duration-200 text-gray-500">
+              Email
+            </label>
             <p className="text-red-500">{errors.email?.message}</p>
           </div>
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <input
               {...register("password")}
               type="password"
-              placeholder="Password"
-              className="w-full px-3 py-2 mb-1 border rounded-md focus:outline-none focus:ring focus:border-primary"
+              placeholder=" "
+              className="w-full py-2 px-3 mt-2 py-2 mb-1 border rounded-md focus:outline-none focus:ring focus:border-primary"
             />
+            <label className="absolute top-4 left-3 px-1 transition-all duration-200 text-gray-500">
+              Password
+            </label>
             <p className="text-red-500">{errors.password?.message}</p>
           </div>
 
